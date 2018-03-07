@@ -30,7 +30,7 @@
                 <div>
                   <input id="hero-email-desktop" type="text" placeholder="Your email">
                 </div>
-                <a id="hero-signup-desktop" class="full-button">Sign up for free</a>
+                <button id="hero-signup-desktop" class="full-button">Sign up for free</button>
               </div>
               <div class="container has-text-centered is-hidden-tablet">
                 <h1>FarmChange</h1>
@@ -38,7 +38,7 @@
                 <div>
                   <input id="hero-email-mobile" type="text" placeholder="Your email">
                 </div>
-                <a id="hero-signup-mobile" class="full-button">Sign up for free</a>
+                <button id="hero-signup-mobile" class="full-button">Sign up for free</button>
               </div>
             </div>
 
@@ -60,7 +60,7 @@
                 standard.
               </p>
               <div class="inline-buttons">
-                <a id="digital-signup" class="outline-button">Sign up for free</a>
+                <button id="digital-signup" class="outline-button">Sign up for free</button>
                 <!-- <a class="outline-button small is-hidden-mobile">Learn more</a> -->
               </div>
             </div>
@@ -172,7 +172,7 @@
                   <div>
                     <input id="full-email" type="text" placeholder="Your email">
                   </div>
-                  <a id="full-signup" class="full-button">Sign up for free</a>
+                  <button id="full-signup" class="full-button">Sign up for free</button>
                 </div>
               </div>
             </div>
@@ -193,7 +193,7 @@
                 <input id="tech-email" type="text" placeholder="Your email">
               </div>
               <div class="has-text-centered-mobile">
-                <a id="tech-signup" class="full-button">Sign up for free</a>
+                <button id="tech-signup" class="full-button">Sign up for free</button>
               </div>
             </div>
           </div>
@@ -219,63 +219,38 @@
   <script>
 
     (function () {
-      document.getElementById("digital-signup").addEventListener("touchstart", function () {
+      document.getElementById("digital-signup").addEventListener("click", function () {
         document.getElementById('register').scrollIntoView({ behavior: 'smooth' });
       })
 
-      document.getElementById("full-signup").addEventListener("touchstart", fullSend);
       document.getElementById("full-signup").addEventListener("click", fullSend);
       function fullSend() {
         var email = document.getElementById('full-email').value;
         var name = document.getElementById('full-name').value;
-        if (validateEmail(email)) {
-          subscribe(email);
-        } else {
-          window.alert("Invalid email format");
-        }
+        subscribe(email, name);
       }
 
-      document.getElementById("tech-signup").addEventListener("touchstart", techSend);
       document.getElementById("tech-signup").addEventListener("click", techSend);
       function techSend() {
         var email = document.getElementById('tech-email').value;
-        if (validateEmail(email)) {
-          subscribe(email);
-        } else {
-          window.alert("Invalid email format");
-        }
+        subscribe(email);
       }
 
-      document.getElementById("hero-signup-mobile").addEventListener("touchstart", heroSend);
       document.getElementById("hero-signup-mobile").addEventListener("click", heroSend);
       function heroSend() {
         var email = document.getElementById('hero-email-mobile').value;
-        if (validateEmail(email)) {
-          subscribe(email);
-        } else {
-          window.alert("Invalid email format");
-        }
+        subscribe(email);
       }
 
-      document.getElementById("hero-signup-desktop").addEventListener("touchstart", heroDesktopSend);
       document.getElementById("hero-signup-desktop").addEventListener("click", heroDesktopSend);
       function heroDesktopSend() {
         var email = document.getElementById('hero-email-desktop').value;
-        if (validateEmail(email)) {
-          subscribe(email);
-        } else {
-          window.alert("Invalid email format");
-        }
-      }
-
-      function validateEmail(email) {
-        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(String(email).toLowerCase());
+        subscribe(email);
       }
 
       function subscribe(email, name) {
-        if (email == "") {
-          window.alert("Email is required to subscribe");
+        if (!validateEmail(email)) {
+          window.alert("Invalid email format");
           return;
         }
 
@@ -286,6 +261,11 @@
         )
       }
 
+      function validateEmail(email) {
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+      }
+
       function subscribeRequest(data) {
         var xhr = new XMLHttpRequest();
         var url = "https://ohtas310mk.execute-api.us-east-1.amazonaws.com/v1/subscribe";
@@ -294,9 +274,18 @@
         xhr.onreadystatechange = function () {
           if (xhr.readyState === 4 && xhr.status === 200) {
             window.alert("Thank you for subscribing");
+            clearValues();
           }
         };
         xhr.send(data);
+      }
+
+      function clearValues() {
+        document.getElementById('full-email').value = "";
+        document.getElementById('full-name').value = "";
+        document.getElementById('tech-email').value = "";
+        document.getElementById('hero-email-mobile').value = "";
+        document.getElementById('hero-email-desktop').value = "";
       }
     })();
   </script>

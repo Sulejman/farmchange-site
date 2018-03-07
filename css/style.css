@@ -53,11 +53,14 @@ p{
     margin: 8px 0px;
 }
 
-a{
+button{
     color: white;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 15px;
 }
 
-a:hover{
+button:hover{
     color: rgba(255,255,255,.75);
 }
 

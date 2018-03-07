@@ -28,17 +28,17 @@
                 <h1 class="big-title">FarmChange</h1>
                 <h3 class="big-subtitle">The digital currency for sustainable farming</h3>
                 <div>
-                  <input id="hero-email" type="text" placeholder="Your email">
+                  <input id="hero-email-desktop" type="text" placeholder="Your email">
                 </div>
-                <a id="hero-signup" class="full-button">Sign up for free</a>
+                <a id="hero-signup-desktop" class="full-button">Sign up for free</a>
               </div>
               <div class="container has-text-centered is-hidden-tablet">
                 <h1>FarmChange</h1>
                 <h3>The digital currency for sustainable farming</h3>
                 <div>
-                  <input id="hero-email" type="text" placeholder="Your email">
+                  <input id="hero-email-mobile" type="text" placeholder="Your email">
                 </div>
-                <a id="hero-signup" class="full-button">Sign up for free</a>
+                <a id="hero-signup-mobile" class="full-button">Sign up for free</a>
               </div>
             </div>
 
@@ -219,11 +219,13 @@
   <script>
 
     (function () {
-      document.getElementById("digital-signup").addEventListener("click", function () {
+      document.getElementById("digital-signup").addEventListener("touchstart", function () {
         document.getElementById('register').scrollIntoView({ behavior: 'smooth' });
       })
 
-      document.getElementById("full-signup").addEventListener("click", function () {
+      document.getElementById("full-signup").addEventListener("touchstart", fullSend);
+      document.getElementById("full-signup").addEventListener("click", fullSend);
+      function fullSend() {
         var email = document.getElementById('full-email').value;
         var name = document.getElementById('full-name').value;
         if (validateEmail(email)) {
@@ -231,25 +233,40 @@
         } else {
           window.alert("Invalid email format");
         }
-      })
+      }
 
-      document.getElementById("tech-signup").addEventListener("click", function () {
+      document.getElementById("tech-signup").addEventListener("touchstart", techSend);
+      document.getElementById("tech-signup").addEventListener("click", techSend);
+      function techSend() {
         var email = document.getElementById('tech-email').value;
         if (validateEmail(email)) {
           subscribe(email);
         } else {
           window.alert("Invalid email format");
         }
-      })
+      }
 
-      document.getElementById("hero-signup").addEventListener("click", function () {
-        var email = document.getElementById('hero-email').value;
+      document.getElementById("hero-signup-mobile").addEventListener("touchstart", heroSend);
+      document.getElementById("hero-signup-mobile").addEventListener("click", heroSend);
+      function heroSend() {
+        var email = document.getElementById('hero-email-mobile').value;
         if (validateEmail(email)) {
           subscribe(email);
         } else {
           window.alert("Invalid email format");
         }
-      })
+      }
+
+      document.getElementById("hero-signup-desktop").addEventListener("touchstart", heroDesktopSend);
+      document.getElementById("hero-signup-desktop").addEventListener("click", heroDesktopSend);
+      function heroDesktopSend() {
+        var email = document.getElementById('hero-email-desktop').value;
+        if (validateEmail(email)) {
+          subscribe(email);
+        } else {
+          window.alert("Invalid email format");
+        }
+      }
 
       function validateEmail(email) {
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

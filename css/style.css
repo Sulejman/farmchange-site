@@ -1,0 +1,269 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  color: white;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1em;
+  background-color: #FAFAFA;
+  overflow-x: hidden;
+  overflow-y: scroll; 
+  -webkit-overflow-scrolling: touch;
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+       font-size: 0.8em;
+    }
+    .full-button{
+        min-width: 250px !important;
+    }
+    .outline-button{
+        min-width: 250px !important;
+    }
+    input{
+        min-width: 250px !important;
+    }
+    h1{
+        font-size: 200% !important;
+    }
+}
+
+
+h1{
+    font-size: 250%;
+    font-family: 'Libre Baskerville', serif;
+}
+
+h2{
+    font-size: 180%;
+    font-family: 'Libre Baskerville', serif;
+    margin: 8px 0px;
+}
+
+h3{
+    font-size: 140%;
+    margin: 8px 0px;
+}
+
+p{
+    font-size: 120%;
+    font-weight: 300;
+    margin: 8px 0px;
+}
+
+a{
+    color: white;
+}
+
+a:hover{
+    color: rgba(255,255,255,.75);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input::-webkit-input-placeholder {
+    color: white;
+}
+input:-moz-placeholder {
+    color: white;
+}
+input::-moz-placeholder {
+    color: white;
+}
+input::-ms-input-placeholder {
+    color: white;
+}
+
+input:focus::-webkit-input-placeholder {
+    color:transparent;
+}
+input:focus:-moz-placeholder {
+    color:transparent;
+}
+input:focus::-moz-placeholder {
+    color:transparent;
+}
+input:focus:-ms-input-placeholder {
+    color:transparent;
+}
+
+input{
+    min-width: 350px;
+    background-color: transparent;
+    width: 70px;
+    min-height: 40px;
+    margin: 5px 0px;
+    display: inline-block;
+    border-radius: 290486px;
+    border: 1px solid white;
+    padding: 12px 0px;
+    text-align: center;
+    white-space: nowrap;
+    color: white;
+    font-size: 100%;
+    font-family: 'Work Sans', sans-serif;
+}
+
+input:focus{
+    outline: none;
+}
+
+.title-box{
+    margin-top: 12%;
+}
+
+.name{
+    padding-top: 0;
+}
+
+.name h1{
+    font-family: 'Work Sans', sans-serif;
+}
+
+.logo{
+    margin-top: -6.75rem;
+}
+
+.big-title{
+    font-size: 600%;
+    font-weight: 300;
+}
+
+.big-subtitle{
+    margin-top: -15px;
+    padding-bottom: 30px;
+}
+
+.paragraph {
+    padding-bottom: 10px;
+}
+
+.background{
+    background: url('../img/bg.png') no-repeat center center; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 350vh;
+}
+
+.info-flex{
+    flex-flow: column;
+    justify-content: space-around;
+}
+
+.first-info{
+    height: 65vh;
+}
+
+.flex-end{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.partners-flex{
+    flex-flow: column;
+    justify-content: flex-end;
+}
+
+section.partners{
+    color: #454545;
+}
+
+.center-flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.farm{
+    background: url('../img/field.png') no-repeat top center; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: auto;
+}
+
+.farm-title{
+    margin-top: 20%;
+}
+
+.registration{
+    padding: 5%;
+    max-width: 900px;
+    min-width: 200px;
+    background-color: #2844BB;
+    border-radius: 0px 50px 0px 50px;
+    margin-top: 7%;
+    z-index: 999999999;
+    position: relative;
+    -webkit-box-shadow: 4px 6px 5px 0px rgba(0,0,0,0.24);
+    -moz-box-shadow: 4px 6px 5px 0px rgba(0,0,0,0.24);
+    box-shadow: 4px 6px 5px 0px rgba(0,0,0,0.24);
+}
+
+.tech{
+    background: url('../img/tech.png') no-repeat center center; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: auto;
+}
+
+section.created{
+    color: #454545;
+    text-align: right;
+}
+
+.grain-logo{
+    width: 80%;
+}
+
+.footer{
+    background: url('../img/footer.png') no-repeat center center; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding: 3rem 1.5rem 3rem;
+}
+
+.full-button{
+    margin: 5px 0px;
+    display: inline-block;
+    border-radius: 290486px;
+    padding: 12px 0px;
+    text-align: center;
+    white-space: nowrap;
+    text-transform: uppercase;
+    min-width: 350px;
+    background-color: #FCC40B;
+    font-weight: 700;
+    color: white;
+}
+
+.outline-button{
+    margin: 5px 0px;
+    display: inline-block;
+    border-radius: 290486px;
+    border: 1px solid white;
+    padding: 12px 0px;
+    text-align: center;
+    white-space: nowrap;
+    text-transform: uppercase;
+    min-width: 350px;
+    background-color: transparent;
+    font-weight: 700;
+    color: white;
+}
+
+.outline-button.small{
+    min-width: 180px;
+}
